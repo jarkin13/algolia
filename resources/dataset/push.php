@@ -39,22 +39,13 @@
     return $facetLevels[0];
   }
 
+  $hierarchicalArray = ['food_type', 'area', 'neighborhood'];
+
   $file = './restaurants_list.json';
   if( !file_exists($file) || !is_readable($file) )
       return false;
 
   $records = json_decode(file_get_contents($file), true);
-
-  foreach( $records as $key => $record ) {
-    //for the sake of this demo, I will set it up just for the hierarchical facets to get this, otherwise I would set this up a bit differently
-    foreach( $record as $item => $string ) {
-      $hierarchical = checkIfHierarchicalFacets($string);
-      if( $hierarchical ) {
-        $records[$key][$item] = explode(' / ', $string);
-        $records[$key]['hierarchical' . ucfirst($item)] = formatHierarchicalFacets($string);
-      }
-    }
-  }
 
   $chunks = array_chunk($records, 1000);
 
@@ -82,16 +73,6 @@
         $header = $row;
       else
         $data[] = array_combine($header, array_map('checkInteger', $row));
-    }
-
-    foreach( $data as $key => $record ) {    
-      foreach( $record as $item => $string ) {
-        $hierarchical = checkIfHierarchicalFacets($string);
-        if( $hierarchical ) {
-          $data[$key][$item] = explode(' / ', $string);
-          $data[$key]['hierarchical' . ucfirst($item)] = formatHierarchicalFacets($string);
-        } 
-      }
     }
 
     $updates = array();

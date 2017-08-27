@@ -75,6 +75,7 @@ var search = {
   },
 
   renderHits: function(results) {
+    console.log(results);
     var e = this;
     for(var i = 0; i < results.hits.length; ++i) {
       if( $.isArray(results.hits[i].area) ) {
@@ -108,6 +109,7 @@ var search = {
 
   renderFacets: function(results, helper) {
     var e = this;
+
     for( var i = 0; i < e.facets.order.length; i++ ) {
       var name = e.facets.order[i];
       var facetResult = results.getFacetByName(name);
@@ -132,7 +134,6 @@ var search = {
         if( $.inArray(facetData.name, facetConfig.options) >= 0 || !facetConfig.options ) {
           data.content[f] = facetData;
           f++;
-          console.log(facetData.name);
         }
       });
 
