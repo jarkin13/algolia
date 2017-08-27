@@ -1,0 +1,18 @@
+header {
+  background: #1c688e;
+  padding: 20px 0;
+
+  .search-container { padding: 0 36px; }
+  
+  input {
+    font-family: 'Open Sans', sans-serif;
+    width: 100%;
+    @include border-radius(5px);
+    border-width: 1px;
+    padding: 10px 15px;
+
+    @include placeholder {
+      color: #b3b3b3;
+    }
+  }
+}

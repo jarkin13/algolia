@@ -1,0 +1,41 @@
+@import 'stats';
+
+.main-content-container { 
+  padding-left: 36px; 
+
+  #hits {
+    margin-top: 36px;
+
+    .hit { margin-bottom: 36px; }
+    .col-auto { padding-left: 15px; }
+
+    h2 {
+      font-size: 1.231em;
+      font-weight: 600;
+    }
+
+    img { 
+      @include border-radius(5px);
+      max-width: 100%; 
+    }
+
+    .data {
+      color: rgba(112, 112, 112, .72);
+      font-size: 1.077em;
+      font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+
+      &--ratings {
+        @include has('star-count') {
+          color: #ffab66;
+        }
+
+        .star-rating {
+          margin: 0 5px 0 3px;
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  .btn-primary.no-results { display: none; }
+}

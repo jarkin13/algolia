@@ -1,0 +1,19 @@
+.stats-container {
+  #stats {
+    padding-left: 15px;
+    padding-right: 30px;
+    padding-bottom: 0;
+
+    .heading { margin: 0 }
+
+    small {
+      color: #333333;
+      font-weight: normal;
+      font-size: 0.893em;
+    }
+  }
+
+  .border {
+    border-bottom: 1px solid #e6e6e6;
+  }
+}

@@ -1,0 +1,48 @@
+.sidebar {
+  position: fixed;
+  top: 81px;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 36px 21px 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-right: 1px solid #e6e6e6;
+
+  #facets {
+    .facet-list { margin-bottom: 28px; }
+
+    .count {
+      float: right;
+      color: #9a9a9a;
+      padding-left: 18px;
+    }
+
+    a {
+      @include border-radius(5px);
+      padding: 3px 15px;
+      display: block;
+      text-decoration: none;
+    }
+
+    a.facet-link {
+      &:hover,
+      &.active {
+        color: #fff;
+        background: #2897c5;
+
+        .count { color: #fff; }
+      }
+    }
+
+    #stars-count h4 small { 
+      opacity: .5;
+      margin-left: 5px; 
+    }
+
+    .star-rating--star { 
+      font-size: 1.308em; 
+      cursor: pointer;
+    }
+  }
+}
