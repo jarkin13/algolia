@@ -74,11 +74,11 @@
       "state"
     ],
     'ranking' => [
-      "filters",
+      "proximity",
       "exact",
+      "filters",
       "geo",
       "words",   
-      "proximity",
       "attribute",
       "typo",
       "custom"
