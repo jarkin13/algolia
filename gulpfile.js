@@ -12,6 +12,7 @@ gulp.task('serve', function() {
 
 // Watching scss/less/html files
 gulp.task('watch', ['serve', 'sass', 'less'], function() {
+    gulp.watch("assets/js/*.js", ['js']);
     gulp.watch("assets/scss/*.scss", ['sass']);
     gulp.watch("assets/scss/**/*.scss", ['sass']);
     gulp.watch("assets/less/*.less", ['less']);
@@ -38,6 +39,11 @@ gulp.task('less', function() {
       }
     }))
     .pipe(gulp.dest("assets/css"))
+    .pipe(browserSync.stream());
+});
+
+gulp.task('js', function() {
+  return gulp.src("assets/js/*.js")
     .pipe(browserSync.stream());
 });
 

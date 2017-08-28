@@ -61,23 +61,16 @@
   $index->setSettings([
     'attributesForFaceting' => [
       "payment_options",
-      "searchable(food_type)",
+      "food_type",
+      "stars_count"
+    ],   
+    'numericAttributesForFiltering' => [
       "stars_count"
     ],
     'searchableAttributes' => [
-      "unordered(name)",
-      "address",
-      "city,neighborhood",
-      "food_type"
-    ],
-    'ranking' => [
-      "typo",
-      "geo",
-      "words",
-      "filters",
-      "proximity",
-      "attribute",
-      "exact",
-      "custom"
+      "name",
+      "food_type",
+      "city",
+      "state"
     ]
   ]);

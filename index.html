@@ -21,7 +21,9 @@
       <div class="row">
         <div class="col-sm-4 col-xl-3 hidden-xs-down sidebar">
           <div id="facets">
-            <div id="food-type" class="facet-list"></div>
+            <div id="food-type" class="facet-list">
+              <button class="btn facet-show-btn" data-value="{{id}}">Show More</button>
+            </div>
             <div id="stars-count" class="facet-list"></div>
             <div id="payment-options" class="facet-list"></div>
           </div>
@@ -34,7 +36,7 @@
             <div class="col border"></div>
           </div>
           <div id="hits"></div>
-          <button class="btn btn-primary" data-value="3" id="show-more">Show More</button>
+          <button class="btn btn-primary" data-value="3" id="show-more-hits">Show More</button>
         </div>
       </div>
 
@@ -69,6 +71,10 @@
         {{/hits}}
       </script>
 
+      <script type="text/template" id="empty-hits-template">
+       No results for <strong>{{query}}</strong>
+      </script>
+
        <script type="text/template" id="default-facet-template">
          <h4 class="heading">{{header}}</h4>
          <ul data-name="{{id}}">
@@ -81,14 +87,14 @@
             </li>
           {{/content}}
          </ul>
-         <button class="btn facet-show-btn" data-value="{{id}}">Show More</button>
+         
       </script>
 
       <script type="text/template" id="stars-count-template">
        <h4 class="heading">{{header}} <small><i class="fa fa-star" aria-hidden="true"></i> & up</small></h4>
        <div class="stars-container">
         {{#starsHTML}}
-          <a href="#" class="facet-link star-rating {{#if isRefined}}active{{/if}}"
+          <a class="facet-link star-rating {{#if isRefined}}active{{/if}}"
             data-attribute="{{../id}}"
             data-value="{{rating}}"
             data-type="{{../type}}">{{{html}}}</a>
@@ -102,10 +108,9 @@
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
-    <script src="https://cdn.jsdelivr.net/npm/algoliasearch@3/dist/algoliasearchLite.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/algoliasearch-helper@2.21.2/dist/algoliasearch.helper.min.js"></script>
+    <script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+    <script src="//cdn.jsdelivr.net/algoliasearch.helper/2/algoliasearch.helper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/handlebarsjs/4.0.8/handlebars.min.js"></script>
-    <script src="assets/js/components/search.js"></script>
     <script src="assets/js/main.js"></script>
   </body>
 </html>
