@@ -197,7 +197,7 @@ $(function () {
   // Search Callback
   function searchCallback(results) {
     renderStats(results);
-    
+
     if(results.hits.length === 0) {
       $hits.html(emptyHitsTemplate({query: results.query}));
       $showMoreHits.addClass('no-results');
@@ -221,6 +221,7 @@ $(function () {
     if(!attribute || !value && parseInt(value) !== 0) return;
     
     if( type === 'numeric' ) {
+      console.log('hi');
       helper.clearRefinements(attribute).addNumericRefinement(attribute, '>=', value).search();
     } else {
       helper.toggleRefine(attribute,value).search();
