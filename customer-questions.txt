@@ -1,5 +1,47 @@
-Question 1: 
+Hi George - 
+
+Great question. 
+
+Within Algolia, an index is the entity you import data into and that you want to search. Once this data is in an index, it can be used by a search engine and you can perform different queries against. You can think of a index like a table within a database, expect the index is highly optimized for search. 
+
+A record is a object stored within a index. Let's say I had an index for all my products sold at my store - each product within my index would be a record. This record would include my product's name, type and price. The product's name, type and price are all attributes within the record, that can be used for searching, displaying, filtering or ranking. 
+
+When we reference indexing, we are referring to the process of adding, updating, deleting or manipulating the data stored in the index. 
+
+I hope this helps you get an overview of these concepts and please let me know if you have any additional questions regarding this. Algolia also has a great Getting Started guide outlining this, which you can find here https://www.algolia.com/doc/guides/getting-started/what-is-algolia/.
+
+Best,
+Jamie
 
 Question 2: 
 
+Hi Matt - 
+
+I apologize for this inconvenience and your frustration. I hope to get this resolved for you! Can you please answer the following questions: 
+1. Can you provide me with a detailed description of your process and what you are trying to accomplish? 
+2. Are you the developer or do you have developers working on your website/application? 
+3. What API client are you currently using?
+
+I look forward to hearing back from you.
+
+Best,
+Jamie
+
 Question 3:
+
+Hi Leo,
+
+Thanks for contacting us. The amount development work is dependent on what your organization's needs are and how your website/application is currently setup. The high level process involves:
+
+1. Import data you want to index(the entity you import data into and that you want to search)
+2. Configure your settings based on your needs 
+3. Use one of our front-end API clients to implement search 
+     - More information on our API clients - https://www.algolia.com/doc/api-reference/
+     - Libraries we provide - https://www.algolia.com/doc/guides/getting-started/ecosystem-overview/#building-a-search-user-interface
+
+Although we do not provide any integration services, we do provide support and guidance to all of our users. You can read more about this in Algolia's Getting Started guide, which you can find here https://www.algolia.com/doc/guides/getting-started/what-is-algolia.
+
+Best,
+Jamie
+
+

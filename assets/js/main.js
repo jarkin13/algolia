@@ -26,7 +26,22 @@ $(function () {
     btn.data('value', show.total);
     
     //set total number even when switching categories -- I purposely wanted it this way
-    helper.setQueryParameter('hitsPerPage', show.total).search();
+    //helper.setQueryParameter('hitsPerPage', show.total).search();
+
+    helper.searchOnce({hitsPerPage: show.total}).then(function(res) {
+      console.log(res);
+      //search.searchCallback(res, helper); 
+    });
+  });
+
+
+
+   search.facets.defaultList.on('click', search.facets.show, function(e) {
+    var facet = $(this).data('value');
+    helper.searchForFacetValues(facet, '*', 100).then( function(res) {
+      results = { hits: res.facetHits };
+      search.renderFacets(results, helper);
+    });
   });
 
   search.facets.defaultList.on('click', 'a.facet-link', function(e) {

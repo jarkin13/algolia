@@ -33,6 +33,7 @@ var search = {
   facets: {
     container: $('#facets'),
     defaultList: $('.facet-list'),
+    show: '.facet-show-btn',
     defaultTemp: Handlebars.compile($('#default-facet-template').html()),
     order: [ 'food_type', 'stars_count', 'payment_options' ],
 
@@ -185,6 +186,10 @@ var search = {
     } else {
       helper.toggleRefine(attribute,value).search();
     }
+  },
+
+  handleShowClick: function() {
+
   },
 
   starRatingTemplate: function(rating, data, half) {
