@@ -9,7 +9,7 @@ $(function () {
       getRankingInfo: true,
       aroundLatLngViaIP: true,
       hitsPerPage: 3,
-      maxValuesPerFacet: 5
+      maxValuesPerFacet: 7
   };
 
    // CLIENT & HELPER INIT
