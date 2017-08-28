@@ -196,12 +196,14 @@ $(function () {
 
   // Search Callback
   function searchCallback(results) {
+    renderStats(results);
+    
     if(results.hits.length === 0) {
       $hits.html(emptyHitsTemplate({query: results.query}));
+      $showMoreHits.addClass('no-results');
       return;
     }
 
-    renderStats(results);
     renderHits(results);
     renderDisjunctiveFacets(results);
     renderFacets(results);
