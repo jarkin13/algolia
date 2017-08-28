@@ -72,5 +72,18 @@
       "food_type",
       "city",
       "state"
+    ],
+    'ranking' => [
+      "filters",
+      "exact",
+      "geo",
+      "words",   
+      "proximity",
+      "attribute",
+      "typo",
+      "custom"
+    ],
+    'customRanking' => [
+      "desc(reviews_count)"
     ]
   ]);

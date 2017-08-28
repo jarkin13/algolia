@@ -5,7 +5,6 @@ $(function () {
   var INDEX_NAME = 'restaurants_list';
   var PARAMS = {
       facets: ['stars_count', 'payment_options'],
-      //filters: 'payment_options:"AMEX" OR payment_options:"Visa" OR payment_options:"MasterCard" OR payment_options:"Discover"',
       disjunctiveFacets: ['food_type'],
       getRankingInfo: true,
       aroundLatLngViaIP: true,
@@ -15,6 +14,7 @@ $(function () {
 
    // CLIENT & HELPER INIT
   var client = algoliasearch(APPLICATION_ID, API_KEY);
+  var index = client.initIndex(INDEX_NAME);
   var helper = algoliasearchHelper(client, INDEX_NAME, PARAMS);
 
   //TEMPLATES
@@ -76,7 +76,6 @@ $(function () {
 
   // Stats 
   function renderStats(results) {
-    console.log(results);
     var stats = {
       nbHits: results.nbHits,
       nbHits_plural: results.nbHits !== 1,
@@ -113,8 +112,7 @@ $(function () {
       };
 
       $.map(results.getFacetValues(facet.name, {sortBy: ['count:desc']}), function(facetData) {
-        console.log(facetData);
-        data.content.push(facetData);
+        data.content[i] = facetData;
         i++;
       });
 
@@ -226,6 +224,20 @@ $(function () {
       helper.toggleRefine(attribute,value).search();
     }
   }
+
+  // Autocomplete 
+  $searchInput.autocomplete(
+    {hint: false}, [
+    {
+      source: $.fn.autocomplete.sources.hits(index, { hitsPerPage: 5 }),
+      displayKey: 'name',
+      templates: {
+        suggestion: function(suggestion) {
+          return '<span>' + suggestion._highlightResult.name.value + '</span><span>';
+        }
+      }
+    }
+  ]);
 
   // Show more button
   function handleShowMoreBtn(data, btn, show) {

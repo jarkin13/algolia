@@ -14,7 +14,9 @@
   <body>
     <header class="fixed-top">
       <div class="container-fluid search-container">
-        <input type="text" autocomplete="off" id="search-box" placeholder="Search for Restaurants by Name, Cuisine, Location"/>
+        <div class="aa-input-container" id="aa-input-container">
+          <input type="text" autocomplete="off" class="aa-input-search" id="search-box" placeholder="Search for Restaurants by Name, Cuisine, Location"/>
+        </div>
       </div>
     </header>
     <div class="container-fluid content-container">
@@ -110,6 +112,7 @@
     <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
     <script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
     <script src="//cdn.jsdelivr.net/algoliasearch.helper/2/algoliasearch.helper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/handlebarsjs/4.0.8/handlebars.min.js"></script>
     <script src="assets/js/main.js"></script>
   </body>
