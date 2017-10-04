@@ -1,7 +1,7 @@
 $(function () {
   // INIT
-  var APPLICATION_ID = '8S8P30TVIQ';
-  var API_KEY = '0cabafec3faed746f8fc6f55a9fc05d9';
+  var APPLICATION_ID = '44KIH7J8OV';
+  var API_KEY = 'f77459c0c8e2bf5ea2b2b5462185218f';
   var INDEX_NAME = 'restaurants_list';
   var PARAMS = {
       facets: ['stars_count', 'payment_options'],
@@ -74,14 +74,14 @@ $(function () {
   // RENDER SEARCH
   // =============
 
-  // Stats 
+  // Stats
   function renderStats(results) {
     var stats = {
       nbHits: results.nbHits,
       nbHits_plural: results.nbHits !== 1,
       processingTimeMS: results.processingTimeMS / 1000.0
     };
-    
+
     $stats.html(statsTemplate(stats));
   }
 
@@ -116,7 +116,7 @@ $(function () {
         i++;
       });
 
-     facetConfig.id.html(facetConfig.temp(data));   
+     facetConfig.id.html(facetConfig.temp(data));
     });
   };
 
@@ -136,8 +136,8 @@ $(function () {
 
         var refinements = helper.getRefinements(facet.name);
         data.starsHTML = [];
-        
-        for( var s = 0; s <= facet.stats.max; s++ ) {  
+
+        for( var s = 0; s <= facet.stats.max; s++ ) {
           var refined = false;
           $.map(refinements, function(r) {
             if(r.value[0] === s) {
@@ -161,7 +161,7 @@ $(function () {
         }
       });
 
-     facetConfig.id.html(facetConfig.temp(data))     
+     facetConfig.id.html(facetConfig.temp(data))
     });
   };
 
@@ -181,7 +181,7 @@ $(function () {
 
     handleShowMoreBtn(btn.data(), btn, show);
     btn.data('value', show.total);
-    
+
     helper.searchOnce({hitsPerPage: show.total}).then(function(res) {
       searchCallback(res.content);
     });
@@ -189,7 +189,7 @@ $(function () {
     // use function below if you want to set the total for each search results
     //helper.setQueryParameter('hitsPerPage', show.total).search();
   });
-  
+
 
   // HELPER FUNCTIONS
   // ================
@@ -218,7 +218,7 @@ $(function () {
     var type = target.data('type');
 
     if(!attribute || !value && parseInt(value) !== 0) return;
-    
+
     if( type === 'numeric' ) {
       helper.clearRefinements(attribute).addNumericRefinement(attribute, '>=', value).search();
     } else {
@@ -226,7 +226,7 @@ $(function () {
     }
   }
 
-  // Autocomplete 
+  // Autocomplete
   $searchInput.autocomplete(
     {hint: false}, [
     {
@@ -250,7 +250,7 @@ $(function () {
       btn.addClass('no-results');
     }
 
-    if( show ) { 
+    if( show ) {
       show.total = show.current + show.add;
       return show;
     }
@@ -265,7 +265,7 @@ $(function () {
       half: '<span class="star-rating--star star-rating--star__half"><i class="fa fa-star-half-o" aria-hidden="true"></i></span>',
       empty: '<span class="star-rating--star star-rating--star__empty"><i class="fa fa-star" aria-hidden="true"></i></span>'
     }
-    
+
     for( var i = 0; i < 5; i++ ){
       if( i < rating ) {
         starDiv.append(star.full);

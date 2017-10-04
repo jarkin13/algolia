@@ -8,7 +8,7 @@
 
   require_once('../../vendor/algoliasearch-client-php-master/algoliasearch.php');
 
-  $client = new \AlgoliaSearch\Client('8S8P30TVIQ', 'bcc1f0e323c0ee4de33e044295af4708');
+  $client = new \AlgoliaSearch\Client('44KIH7J8OV', '2996fcd3fd2b1863e7525b40b14c9e9c');
   $index = $client->initIndex('restaurants_list');
 
   $file = './restaurants_list.json';
@@ -32,10 +32,10 @@
   function checkInteger($n) {
     if( is_numeric ($n) ){
       $n = floatval($n);
-    } 
+    }
     return $n;
   }
-  
+
   if( ($handle = fopen($file, 'r')) !== false ) {
     while( ($row = fgetcsv($handle, 0, ';')) !== false ) {
       if( !$header )
@@ -63,7 +63,7 @@
       "payment_options",
       "food_type",
       "stars_count"
-    ],   
+    ],
     'numericAttributesForFiltering' => [
       "stars_count"
     ],
@@ -78,7 +78,7 @@
       "exact",
       "filters",
       "geo",
-      "words",   
+      "words",
       "attribute",
       "typo",
       "custom"
